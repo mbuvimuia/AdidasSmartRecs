@@ -2,6 +2,13 @@ from fastapi import FastAPI
 import pickle
 import numpy as np
 
+class kmeans():
+    n_clusters :3 
+    random_state : 42
+
+with open('model_pickle','wb') as file:
+   pickle.dump(kmeans,file)
+
 class CustomerData():
     acid: str
     age: int
