@@ -1,18 +1,19 @@
-import uvicorn
-import nbimporter
-from Recommendations import hybrid_recommendation_system
-import import_ipynb
 from fastapi import FastAPI
+import joblib
 
+# Load your saved models and data
+user_similarity = joblib.load('/models/user_similarity.pkl')
+item_similarity = joblib.load('/models/item_similarity.pkl')
+vectorizer = joblib.load('/models/vectorizer.pkl')
+user_item_matrix = joblib.load('/models/user_item_matrix.pkl')
+product_matrix = joblib.load('/models/product_matrix.pkl')
 
+# Initialize the FastAPI app
 app = FastAPI()
 
-@app.get("/recommendations/{user_id}")
-async def recommend_items(user_id: str):
-    """Recommends items based on user ID"""
-    recommendations = hybrid_recommendation_system(user_id)
-    print(f"Recommendations: {recommendations}")
+# Define a route for recommendations
+@app.get("/recommendations/")
+def get_recommendations(user_id: str, n_recommendations: int = 5):
+    # Replace this with your recommendation logic
+    recommendations = hybrid_recommendation_system(user_id, n_recommendations)
     return {"recommendations": recommendations}
-
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
