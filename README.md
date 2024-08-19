@@ -51,3 +51,28 @@ Three datasets will be used which have been sourced directly from Adidas Website
   - `acid`: Identifies each consumer.
   - `year`, `quarter_of_year`, `month_of_year`, `week_of_year`: Time-based attributes to monitor engagement over different periods.
   - Various `freq_*` columns: Capture the frequency of different consumer interactions (e.g., signups, app usage, purchases).
+
+
+## Conclusions
+- Limited Cluster Differentiation: The clustering approach struggled to distinguish between customer segments due to similar behaviors, reducing the effectiveness of the recommendation system.
+
+- Homogeneous Data: The lack of variation in customer data, including purchasing patterns and engagement, made it difficult to create distinct and meaningful customer clusters.
+
+- Recommendation System Challenges: The system showed low precision and recall, particularly struggling with new or less active customers, due to issues like the "cold start" problem and insufficient historical data.
+
+- Data and Feature Limitations: Sparse interaction data and inadequate feature selection hindered the ability to accurately model customer preferences, missing key aspects like customer sentiment and detailed product attributes.
+## Recommendations
+
+- Pilot New Strategies: Test new segmentation and recommendation methods on a small scale to refine them before broader implementation.
+- Enhance Data Collection: Gather more diverse data, such as from social media or surveys, to improve customer profiles and segmentation accuracy.
+- Explore Advanced Models: Investigate more sophisticated machine learning models to better manage complex and sparse data.
+- Develop Dynamic Recommendations: Create recommendation systems that adjust to evolving customer behavior and context for more personalized suggestions.
+## Next Steps
+
+- Enhance Data Collection: Integrate additional data sources like social media, loyalty programs, and detailed purchase histories, along with behavioral and psychographic data, to gain deeper insights into customer preferences.
+
+- Refine Segmentation: Adopt dynamic and hybrid segmentation techniques that update in real-time, combining demographic, behavioral, and psychographic data to create more actionable customer profiles.
+
+- Advance Recommendation Techniques: Explore deep learning models and context-aware systems to improve recommendations, and address the cold start problem by using hybrid approaches and incentivizing initial user engagement.
+
+- Continuous Improvement: Regularly perform A/B testing and incorporate user feedback to continuously refine and improve the recommendation algorithms.
