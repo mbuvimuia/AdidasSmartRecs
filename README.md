@@ -1,78 +1,82 @@
-# Adidas: Leveraging Data-Driven Segmentation for Personalized Shopping Experiences
 
-## Project Description
-### Overview
-Adidas, a leading global sportswear brand, aims to enhance customer engagement and drive sales in Great Britain by leveraging data-driven strategies. The company recognizes the need to better understand its diverse customer base and provide personalized experiences that cater to individual preferences. This project focuses on developing a customer segmentation and recommendation system that will allow Adidas to deliver tailored product recommendations based on the specific sports categories that customers are interested in.
+# AdidasSmartRecs
 
-### Problem Statement 
-With a vast and diverse customer base in Great Britain, Adidas faces the challenge of effectively engaging with its customers across different sports categories. The current approach lacks the granularity needed to provide personalized experiences, leading to missed opportunities for increasing customer loyalty and driving sales. There is a need for a system that can accurately segment customers and deliver relevant product recommendations that resonate with their interests and behaviors.
+## Overview
 
-### Objectives
-1. To develop a robust segmentation model that categorizes customers based on their purchasing behavior, particularly focusing on the sports categories they engage with.
-2. To build a recommendation system that suggests products aligned with the identified customer segments, enhancing the shopping experience and driving sales.
-3. To integrate the recommendation system with a customer-facing platform, such as a website, ensuring seamless interaction and personalized user experiences.
-4. To ensure that the system is scalable to handle the diverse range of products and customer behaviors across all of Adidas's offerings.
+**AdidasSmartRecs** is a data-driven project aimed at enhancing customer engagement and driving sales for Adidas in Great Britain. The project leverages customer segmentation and recommendation systems to provide personalized experiences based on individual preferences and behaviors, particularly focusing on sports categories.
 
-### Success Metrics 
-1. Model Accuracy: Maintain an overall model accuracy rate of 80% or higher in predicting user preferences.
+## Project Structure
 
-2. Functional Storefront: Ensure the website accurately simulates a real e-commerce platform, showcasing product recommendations with names and descriptions.
+The project is structured into several key directories and files:
 
-3. Model Integration: Successfully integrate the recommendation model into the website, allowing it to dynamically generate and display personalized product suggestions for each user.
+- **`data/`**: Contains the datasets used for the analysis, including consumer, sales, and engagement data.
+- **`models/`**: Contains the saved models used for customer segmentation and recommendation systems.
+- **`website/`**: Includes the front-end and back-end components for deploying the recommendation system on a customer-facing platform.
+- **`API.py`**: A Python script that provides an API for the recommendation system using Flask.
+- **`notebook.ipynb`**: The Jupyter notebook containing the exploratory data analysis, model development, and evaluation processes.
+- **`README.md`**: This file, providing an overview and instructions for the project.
 
+## Installation
 
-## Data sources 
-Three datasets will be used which have been sourced directly from Adidas Website.
-- (ConsTable_EU.csv), that contains consumer information.
+To run this project locally, follow these steps:
 
-- (SalesTable_EU.csv), that contains Sales information.
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/yourusername/AdidasSmartRecs.git
+    cd AdidasSmartRecs
+    ```
 
-- (EngagementTable_GB.csv) that contains data on customer engagement for Great Britain.
+2. **Install the required packages**:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-## Data Understanding
+3. **Run the API**:
+    ```bash
+    python API.py
+    ```
 
-### 1. **Consumer Information**
- The Dataset contains 355,461 entries and 8 attributes.
-  - `acid`: A unique identifier for each consumer.
-  - `loyalty_memberid`: Represents membership IDs.
-  - `birth_year`: Captures the year of birth of consumers, spanning from 1882 to 2009.
-  - `consumer_gender`, `market_name`, `first_signup_country_code`: Provide demographic and geographical insights.
-  - `member_latest_tier`, `member_latest_points`: Details related to the loyalty program of consumers.
+4. **Access the website**:
+    - Navigate to `http://localhost:8000` in your web browser to view and interact with the recommendation system.
 
-### 2. **Sales Data**
- The Dataset contains 178,334 entries and 20 attributes.
-  - `acid`, `order_no`, `order_date`: Track individual orders with corresponding dates.
-  - `market_name`, `country`: Provide geographical context for sales.
-  - `quantity_ordered`, `quantity_returned`, `quantity_cancelled`, `quantity_delivered`: Offer insights into order processing and fulfillment metrics.
-  - `exchange_rate_to_EUR`, `order_item_unit_price_net`: Financial data associated with orders, including currency conversion rates and net prices.
+## Data Overview
 
-### 3. **Engagement Data**
- The Dataset contains 33,148 entries and 29 attributes.
-  - `acid`: Identifies each consumer.
-  - `year`, `quarter_of_year`, `month_of_year`, `week_of_year`: Time-based attributes to monitor engagement over different periods.
-  - Various `freq_*` columns: Capture the frequency of different consumer interactions (e.g., signups, app usage, purchases).
+The project utilizes three main datasets:
 
+1. **Consumer Data (`ConsTable_EU.csv`)**: Contains demographic and loyalty information about Adidas customers.
+2. **Sales Data (`SalesTable_EU.csv`)**: Includes details of customer orders, including product categories, quantities, and prices.
+3. **Engagement Data (`EngagementTable_GB.csv`)**: Captures the frequency of customer interactions with Adidas platforms, such as apps and websites.
 
-## Conclusions
-- Limited Cluster Differentiation: The clustering approach struggled to distinguish between customer segments due to similar behaviors, reducing the effectiveness of the recommendation system.
+## Key Components
 
-- Homogeneous Data: The lack of variation in customer data, including purchasing patterns and engagement, made it difficult to create distinct and meaningful customer clusters.
+### 1. **Data Preparation**
+   - The data was filtered to focus on Great Britain customers.
+   - Missing values were handled, and feature engineering was performed to create new variables like engagement scores.
 
-- Recommendation System Challenges: The system showed low precision and recall, particularly struggling with new or less active customers, due to issues like the "cold start" problem and insufficient historical data.
+### 2. **Customer Segmentation**
+   - Using machine learning techniques like K-Means clustering, customers were segmented based on their purchasing behavior and engagement levels.
+   - The model identified distinct customer groups, which were analyzed to tailor marketing strategies.
 
-- Data and Feature Limitations: Sparse interaction data and inadequate feature selection hindered the ability to accurately model customer preferences, missing key aspects like customer sentiment and detailed product attributes.
-## Recommendations
+### 3. **Recommendation System**
+   - Developed a hybrid recommendation system combining collaborative filtering, item-based filtering, and content-based filtering.
+   - The system provides personalized product recommendations for each customer segment.
 
-- Pilot New Strategies: Test new segmentation and recommendation methods on a small scale to refine them before broader implementation.
-- Enhance Data Collection: Gather more diverse data, such as from social media or surveys, to improve customer profiles and segmentation accuracy.
-- Explore Advanced Models: Investigate more sophisticated machine learning models to better manage complex and sparse data.
-- Develop Dynamic Recommendations: Create recommendation systems that adjust to evolving customer behavior and context for more personalized suggestions.
-## Next Steps
+### 4. **Model Evaluation**
+   - The performance of the recommendation system was evaluated using precision and recall metrics.
+   - Different weight combinations were tested to optimize the recommendation quality.
 
-- Enhance Data Collection: Integrate additional data sources like social media, loyalty programs, and detailed purchase histories, along with behavioral and psychographic data, to gain deeper insights into customer preferences.
+## Usage
 
-- Refine Segmentation: Adopt dynamic and hybrid segmentation techniques that update in real-time, combining demographic, behavioral, and psychographic data to create more actionable customer profiles.
+1. **Exploratory Data Analysis**: The `notebook.ipynb` file contains a detailed exploratory analysis, including visualizations and insights drawn from the data.
+2. **Running the Recommendation System**: Use the Flask API to get real-time product recommendations based on user interactions and purchase history.
+3. **Deployment**: The project includes a basic front-end interface to display recommendations. The back-end is powered by the Flask API, which integrates the recommendation models.
 
-- Advance Recommendation Techniques: Explore deep learning models and context-aware systems to improve recommendations, and address the cold start problem by using hybrid approaches and incentivizing initial user engagement.
+## Conclusion and Next Steps
 
-- Continuous Improvement: Regularly perform A/B testing and incorporate user feedback to continuously refine and improve the recommendation algorithms.
+The AdidasSmartRecs project successfully implements a recommendation system tailored to the diverse customer base in Great Britain. By leveraging customer segmentation and personalized recommendations, Adidas can enhance customer engagement and increase sales.
+
+Future work may include:
+
+- **Model Refinement**: Improving the clustering algorithm and recommendation models for better accuracy.
+- **Scalability**: Ensuring the system can handle large-scale data across different regions.
+- **Integration**: Expanding the integration of the recommendation system into Adidas’s broader digital ecosystem.
