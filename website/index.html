@@ -3,22 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adidas Recommendations</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Adidas Shop</title>
+    <link rel="stylesheet" href="/website/style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Adidas Product Recommendations</h1>
-        <form id="recommendation-form">
-            <label for="user-id">User ID:</label>
-            <input type="text" id="user-id" name="user-id" required>
-            <button type="submit">Get Recommendations</button>
-        </form>
-        <div id="recommendations">
-            <h2>Recommended Products:</h2>
-            <ul id="recommendation-list"></ul>
-        </div>
-    </div>
-    <script src="app.js"></script>
+    <header>
+        <h1>Adidas Shop</h1>
+        <p>Discover your personalized recommendations!</p>
+    </header>
+    
+    <section id="user-section">
+        <label for="user-id">Enter Your User ID:</label>
+        <input type="text" id="user-id" placeholder="User ID">
+        <button id="get-recommendations">Get Recommendations</button>
+    </section>
+
+    <section id="recommendations">
+        <h2>Your Recommendations</h2>
+        <div id="product-list"></div>
+    </section>
+
+    <script src="/website/app.js">
+        
+    </script>
 </body>
 </html>
