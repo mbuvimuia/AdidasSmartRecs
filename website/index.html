@@ -1,32 +1,74 @@
 
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adidas Shop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/website/style.css">
 </head>
 <body>
-    <header>
-        <img src="adidas-logo.jpg" alt="Adidas Logo" class="logo">
-        <h1>Adidas Shop</h1>
-        <p>Discover your personalized recommendations!</p>
-    </header>
-    
-    <section id="user-section">
-        <label for="user-id">Enter Your User ID:</label>
-        <input type="text" id="user-id" placeholder="User ID">
-        <button id="get-recommendations">Get Recommendations</button>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero-section">
+        <img src="samuel-regan-asante-iLOf15UWU-c-unsplash.jpg" alt="Adidas Shoes Display" class="hero-image">
+        <div class="hero-text">
+            <h1>Welcome to Adidas Shop</h1>
+            <p>Explore our latest collection of exclusive products.</p>
+            <a href="#products" class="hero-button">Shop Now</a>
+        </div>
     </section>
 
-    <section id="recommendations">
-        <h2>Your Recommendations</h2>
-        <div id="product-list"></div>
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Adidas Shop offers a curated selection of the latest and greatest in Adidas footwear and apparel. Our mission is to provide customers with top-quality products that blend performance and style.</p>
     </section>
+
+    <!-- Product Showcase with User Input and Placeholder -->
+    <section id="products">
+        <h2>Featured Products</h2>
+        <div id="user-section">
+            <label for="user-id">Enter Your User ID:</label>
+            <input type="text" id="user-id" placeholder="User ID">
+            <button id="get-recommendations">Get Recommendations</button>
+        </div>
+        <div id="product-list" class="product-grid">
+            <p>Please enter your User ID and click "Get Recommendations" to see your recommended products.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Your Name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Adidas. All rights reserved.</p>
+        <div>
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact Us</a>
+        </div>
+    </footer>
 
     <script src="/website/app.js"></script>
 </body>
 </html>
-

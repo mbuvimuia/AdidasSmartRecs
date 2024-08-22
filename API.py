@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel
 import uvicorn
 from sklearn.metrics.pairwise import cosine_similarity
@@ -8,10 +8,19 @@ import pandas as pd
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
+)
+
+app.mount("/website", StaticFiles(directory="website"), name="website")
 templates = Jinja2Templates(directory="templates")
 
 @app.get("/", response_class=HTMLResponse)
@@ -23,7 +32,7 @@ item_similarity = joblib.load('models/item_similarity.pkl')
 product_matrix = joblib.load('models/product_matrix.pkl')
 user_item_matrix = joblib.load('models/user_item_matrix.pkl')
 user_similarity = joblib.load('models/user_similarity.pkl')
-vectorizer = joblib.load('models/vectorizer.pkl')
+# vectorizer = joblib.load('models/vectorizer.pkl')
 product_data = pd.read_csv('models/product_data.csv')
 customer_data = pd.read_csv('models/customer_data.csv')
 
@@ -108,15 +117,6 @@ def hybrid_recommendation_system(user_id, n_recommendations=5):
     # return combined_recommendations[:n_recommendations]
     return combined_recommendations
 
-# Define the API endpoints
-@app.post("/recommendations")
-async def get_recommendations(user: UserID):
-    recommendations = hybrid_recommendation_system(user.user_id )
-    
-    if not recommendations:
-        raise HTTPException(status_code=404, detail="No recommendations found for this user.")
-    
-    return {"user_id": user.user_id, "recommendations": recommendations}
 
 # Define an additional endpoint to get recommendations by user ID
 @app.get("/recommendations/{user_id}")
