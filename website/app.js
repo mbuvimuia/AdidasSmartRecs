@@ -1,28 +1,37 @@
-document.getElementById('get-recommendations').addEventListener('click', async function() {
-    const userId = document.getElementById('user-id').value;
-    const response = await fetch(`http://127.0.0.1:8000/recommendations/${userId}`);
-    if (response.ok) {
-        const data = await response.json();
-        displayRecommendations(data.recommendations);
-    } else {
-        alert('No recommendations found for this user.');
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('recommendation-form');
+    const recommendationsDiv = document.getElementById('recommendations');
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const userId = document.getElementById('user-id').value.trim();
+        recommendationsDiv.innerHTML = '<em>Loading recommendations...</em>';
+        try {
+            const response = await fetch(`/recommendations/${userId}`);
+            if (response.ok) {
+                const data = await response.json();
+                displayRecommendations(data.recommendations);
+            } else {
+                recommendationsDiv.innerHTML = '<span style="color:#f55">No recommendations found for this user.</span>';
+            }
+        } catch (err) {
+            recommendationsDiv.innerHTML = '<span style="color:#f55">Error fetching recommendations.</span>';
+        }
+    });
+
+    function displayRecommendations(recommendations) {
+        recommendationsDiv.innerHTML = '';
+        if (!recommendations || recommendations.length === 0) {
+            recommendationsDiv.textContent = 'No recommendations found.';
+            return;
+        }
+        const ul = document.createElement('ul');
+        recommendations.forEach(productId => {
+            const li = document.createElement('li');
+            li.textContent = `Product ID: ${productId}`;
+            ul.appendChild(li);
+        });
+        recommendationsDiv.appendChild(ul);
     }
 });
-
-function displayRecommendations(recommendations) {
-    const productList = document.getElementById('product-list');
-    productList.innerHTML = ''; // Clear any previous recommendations
-
-    if (recommendations.length === 0) {
-        productList.textContent = 'No recommendations found.';
-        return;
-    }
-
-    recommendations.forEach(product => {
-        const productDiv = document.createElement('div');
-        productDiv.className = 'product-item';
-        productDiv.textContent = `Product: ${product[0]}, Category: ${product[1]}`;
-        productList.appendChild(productDiv);
-    });
-}
 
