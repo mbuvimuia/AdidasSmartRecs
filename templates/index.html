@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adidas Shop - Smart Recommendations</title>
+    <link rel="stylesheet" href="/website/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="banner">
+            <img src="/website/main-banner.jpg" alt="Adidas Banner" class="banner-img">
+            <div class="banner-text">
+                <h1>Welcome to Adidas Shop</h1>
+                <p>Explore our latest collection of exclusive products and get personalized recommendations!</p>
+                <a href="#products" class="cta-btn">Shop Now</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Adidas Shop offers a curated selection of the latest and greatest in Adidas footwear and apparel. Our mission is to provide customers with top-quality products that blend performance and style.</p>
+        </section>
+        <section id="products">
+            <h2>Featured Products</h2>
+            <form id="recommendation-form">
+                <label for="user-id">Enter Your User ID:</label>
+                <input type="text" id="user-id" name="user-id" value="0013SD11X9372BM7" required>
+                <button type="submit">Get Recommendations</button>
+            </form>
+            <div id="recommendations"></div>
+            <p class="info">Please enter your User ID and click "Get Recommendations" to see your recommended products.</p>
+        </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Adidas. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a> |
+            <a href="#contact">Contact Us</a>
+        </div>
+    </footer>
+    <script src="/website/app.js"></script>
+</body>
+</html>
