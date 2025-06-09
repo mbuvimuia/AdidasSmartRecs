@@ -18,10 +18,10 @@ AdidasSmartRecs is a data-driven recommendation system designed to enhance custo
 
 ---
 
-## Screenshots
+<!-- ## Screenshots
 > _Add your own screenshots here!_
 
-![Web UI Screenshot](website/screenshot.png)
+![Web UI Screenshot](website/screenshot.png) -->
 
 ---
 
@@ -102,7 +102,7 @@ AdidasSmartRecs is a data-driven recommendation system designed to enhance custo
 ---
 
 ## License
-This project is licensed under the MIT License.
+This project is licensed under the GNU GENERAL PUBLIC LICENSE
 
 ---
 
