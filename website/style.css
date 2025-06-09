@@ -1,3 +1,4 @@
+
 body {
     background: #181818;
     color: #fff;
@@ -13,195 +14,183 @@ header nav {
 header nav ul {
     list-style: none;
     display: flex;
-    justify-content: center;
-    gap: 2rem;
+    flex-direction: column;
+    min-height: 100vh;
     margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
     padding: 0;
-}
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    letter-spacing: 1px;
-    transition: color 0.2s;
-}
-header nav ul li a:hover {
-    color: #1da1f2;
+    align-items: center;
 }
 
-.banner {
-    position: relative;
+nav {
     width: 100%;
-    height: 320px;
-    overflow: hidden;
-    background: #111;
+    background-color: #000;
+    padding: 15px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    align-items: center;
     justify-content: center;
 }
-.banner-img {
-    width: 100%;
-    height: 320px;
-    object-fit: cover;
-    opacity: 0.7;
+
+nav ul li {
+    margin: 0 20px;
 }
-.banner-text {
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+header, #user-section, #recommendations {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+footer {
+    margin-top: auto;
+    padding: 10px 0;
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    font-size: 0.9em;
+    box-sizing: border-box;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+#hero-section {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(70%);
+}
+
+.hero-text {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
-    color: #fff;
-}
-.banner-text h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    letter-spacing: 2px;
-}
-.banner-text p {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-}
-.cta-btn {
-    background: #1da1f2;
-    color: #fff;
-    padding: 0.7rem 2rem;
-    border: none;
-    border-radius: 25px;
-    font-size: 1rem;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background 0.2s;
-}
-.cta-btn:hover {
-    background: #0d8ddb;
 }
 
-main {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+.hero-text h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
 }
-section {
-    margin-bottom: 2.5rem;
-    background: #222;
-    border-radius: 12px;
-    padding: 2rem 1.5rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+
+.hero-text p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
 }
-section h2 {
-    color: #1da1f2;
-    margin-top: 0;
+
+.hero-button {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
-#recommendation-form {
+
+.hero-button:hover {
+    background-color: #333;
+}
+
+#about, #products, #contact {
+    width: 100%;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.product-item {
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+}
+
+form {
     display: flex;
     gap: 1rem;
     align-items: center;
-    margin-bottom: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
 }
-#recommendation-form input[type="text"] {
-    padding: 0.5rem;
-    border-radius: 5px;
-    border: 1px solid #444;
-    background: #181818;
-    color: #fff;
-    font-size: 1rem;
+
+form label {
+    margin-bottom: 5px;
+    font-size: 1em;
+    color: #333;
 }
-#recommendation-form button {
-    background: #1da1f2;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 0.5rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s;
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
 }
-#recommendation-form button:hover {
-    background: #0d8ddb;
-}
-#recommendations {
-    margin-top: 1.5rem;
-    padding: 1rem;
-    background: #181818;
-    border-radius: 8px;
-    min-height: 40px;
-    color: #fff;
-}
-.info {
-    color: #aaa;
-    font-size: 0.95rem;
-}
-#contact-form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-#contact-form input, #contact-form textarea {
-    flex: 1 1 200px;
-    padding: 0.5rem;
-    border-radius: 5px;
-    border: 1px solid #444;
-    background: #181818;
-    color: #fff;
-    font-size: 1rem;
-}
-#contact-form textarea {
-    min-height: 60px;
-    resize: vertical;
-}
-#contact-form button {
-    background: #1da1f2;
+
+form button {
+    padding: 10px 15px;
+    font-size: 1em;
+    background-color: #000;
     color: #fff;
     border: none;
-    border-radius: 5px;
-    padding: 0.5rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
-#contact-form button:hover {
-    background: #0d8ddb;
-}
-footer {
-    background: #000;
-    color: #aaa;
-    text-align: center;
-    padding: 1.2rem 0 0.5rem 0;
-    margin-top: 2rem;
-}
-.footer-links a {
-    color: #1da1f2;
-    text-decoration: none;
-    margin: 0 0.5rem;
-    font-size: 0.95rem;
-}
-.footer-links a:hover {
-    text-decoration: underline;
-}
-@media (max-width: 700px) {
-    .banner-text h1 {
-        font-size: 1.5rem;
-    }
-    .banner {
-        height: 180px;
-    }
-    .banner-img {
-        height: 180px;
-    }
-    main {
-        padding: 0 0.2rem;
-    }
-    section {
-        padding: 1rem 0.5rem;
-    }
-    #recommendation-form {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    #contact-form {
-        flex-direction: column;
-    }
+
+form button:hover {
+    background-color: #333;
+    transform: translateY(-2px);
 }

@@ -31,6 +31,8 @@ async def read_root(request: Request):
 item_similarity = joblib.load('models/item_similarity.pkl')
 product_matrix = joblib.load('models/product_matrix.pkl')
 user_item_matrix = joblib.load('models/user_item_matrix.pkl')
+user_similarity = joblib.load('models/user_similarity.pkl')
+# vectorizer = joblib.load('models/vectorizer.pkl')
 product_data = pd.read_csv('models/product_data.csv')
 customer_data = pd.read_csv('models/customer_data.csv')
 
